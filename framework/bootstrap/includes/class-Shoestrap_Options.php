@@ -1879,7 +1879,7 @@ if ( ! class_exists( 'Shoestrap_Options' ) ) {
 				'display_version'   => $theme->get( 'Version' ),
 				'menu_type'         => 'menu',
 				'allow_sub_menu'    => true,
-				'menu_title'        => __( 'Shoestrap', 'shoestrap'),
+				'menu_title'        => __( 'OU Create Options', 'shoestrap'),
 				'page_title'        => __('Shoestrap Options', 'shoestrap'),
 				'global_variable'   => 'redux',
 

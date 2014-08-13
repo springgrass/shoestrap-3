@@ -66,6 +66,15 @@ if ( ! class_exists( 'ReduxFramework' ) ) {
 	require_once locate_template( '/lib/dependencies.php' );                // load our dependencies
 }
 
+if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' );
+}
+
+if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/framework/bootstrap/includes/class-Shoestrap_Options.php' ) ) {
+require_once( dirname( __FILE__ ) . '/framework/bootstrap/includes/class-Shoestrap_Options.php' );
+} 
+
+
 // Setup our custom updater
 if ( file_exists( locate_template( '/lib/updater/updater.php' ) ) ) {
 	require_once locate_template( '/lib/updater/updater.php' );

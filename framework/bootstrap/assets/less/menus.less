@@ -83,6 +83,7 @@ a.toggle-nav {
 		background: @navbar-default-bg;
 		li.active a,
 		li:hover a{
+			text-transform: uppercase;
 			background: @navbar-default-link-active-bg;
 			color: @navbar-default-link-active-color;
 		}
@@ -96,7 +97,7 @@ a.toggle-nav {
 		a:focus {
 			&:first-child {
 				background: @navbar-default-bg;
-				border-bottom: 5px solid @brand-primary;
+				border-bottom: 3px solid @brand-primary;
 				padding-bottom: 10px;
 			}
 			
@@ -106,7 +107,7 @@ a.toggle-nav {
 		.active > a:hover,
 		.active > a:focus {
 			background: @navbar-default-bg;
-			border-bottom: 5px solid @brand-primary;
+			border-bottom: 3px solid @brand-primary;
 		}
 		.dropdown-menu {
 			border-top: 5px;
@@ -122,11 +123,16 @@ a.toggle-nav {
 				color: @brand-primary;
 				border-bottom: 0;
 				border-top: 1px solid @brand-primary;
-				padding-bottom: 0px;
+				padding-bottom: 10px;
 			}
 		}
 		.navbar-nav > li > a {
 				padding-bottom: 10px;
+				text-transform: uppercase;
+				height:@navbar-height;
+		}
+		#navbar_social_bar a:hover, #footer_social_bar a:active {
+				border-bottom: none;
 		}
 	}
 	&.style2 {
@@ -225,6 +231,7 @@ a.toggle-nav {
 
 .navbar a.navbar-brand {
 	max-width: inherit !important;
+	padding-right: 45px;
 
 	&.logo {
 		height: @navbar-height;
