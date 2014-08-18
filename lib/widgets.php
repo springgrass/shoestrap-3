@@ -2,10 +2,10 @@
 /**
  * Register sidebars and widgets
  */
-function shoestrap_widgets_init() {
+/*function shoestrap_widgets_init() {
 	$class        = apply_filters( 'shoestrap_widgets_class', '' );
 	$before_title = apply_filters( 'shoestrap_widgets_before_title', '<h3 class="widget-title">' );
-	$after_title  = apply_filters( 'shoestrap_widgets_after_title', '</h3>' );
+	$after_title  = apply_filters( 'shoestrap_widgets_after_title', '<span class="line"></span></h3>' );
 
 	// Sidebars
 	register_sidebar( array(
@@ -27,3 +27,4 @@ function shoestrap_widgets_init() {
 	));
 }
 add_action( 'widgets_init', 'shoestrap_widgets_init' );
+*/

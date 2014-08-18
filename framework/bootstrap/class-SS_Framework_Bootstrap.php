@@ -76,7 +76,7 @@ if ( ! class_exists( 'SS_Framework_Bootstrap' ) ) {
 				define( 'SS_FRAMEWORK_PATH', dirname( __FILE__ ) );
 			}
 
-			if ( class_exists( 'ReduxFrameworkPlugin' ) ) {
+			if ( class_exists( 'ReduxFramework' ) ) {
 
 				include_once( SS_FRAMEWORK_PATH . '/includes/class-Shoestrap_Options.php' );         // Redux Options
 				include_once( SS_FRAMEWORK_PATH . '/includes/class-Shoestrap_Advanced.php' );        // Advanced
@@ -1039,7 +1039,8 @@ if ( ! class_exists( 'SS_Framework_Bootstrap' ) ) {
 			$networks = $ss_social->get_social_links();
 
 			// The base class for icons that will be used
-			$baseclass  = 'icon el-icon-';
+			//$baseclass  = 'icon el-icon-';
+			$baseclass  = 'icon fa fa-';
 
 			// Build the content
 			$content = '';
@@ -1070,7 +1071,8 @@ if ( ! class_exists( 'SS_Framework_Bootstrap' ) ) {
 			$networks = $ss_social->get_social_links();
 
 			// The base class for icons that will be used
-			$baseclass  = 'el-icon-';
+			//$baseclass  = 'el-icon-';
+			$baseclass  = 'icon fa fa-';
 
 			// Build the content
 			$content = '';

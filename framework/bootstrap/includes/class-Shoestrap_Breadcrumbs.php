@@ -144,7 +144,11 @@ if ( ! class_exists( 'Shoestrap_Breadcrumbs' ) ) {
 				}
 				$links[] = array( 'id' => $post->ID );
 			} else {
-				if ( is_post_type_archive() ) {
+			    // on standard post index page
+			    if (is_home()){
+				    $links[] = array( 'id' => $blog_page );
+			    }
+				else if ( is_post_type_archive() ) {
 					$links[] = array( 'post_type_archive' => $wp_query->query['post_type'] );
 				} else if ( is_tax() || is_tag() || is_category() ) {
 					$term = $wp_query->get_queried_object();
@@ -219,7 +223,8 @@ if ( ! class_exists( 'Shoestrap_Breadcrumbs' ) ) {
 				echo $output;
 				return true;
 			} else {
-				return $output;
+				    
+			  return $output;
 			}
 		}
 

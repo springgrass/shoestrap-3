@@ -195,6 +195,7 @@ if ( ! class_exists( 'Shoestrap_Social' ) ) {
 
 			// The base class for icons that will be used
 			$baseclass  = 'icon el-icon-';
+				
 
 			// Don't show by default
 			$show = false;

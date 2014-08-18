@@ -19,7 +19,9 @@ if( ! class_exists( 'Shoestrap_Footer' ) ) {
 		function widgets_init() {
 			$class        = apply_filters( 'shoestrap_widgets_class', '' );
 			$before_title = apply_filters( 'shoestrap_widgets_before_title', '<h3 class="widget-title">' );
-			$after_title  = apply_filters( 'shoestrap_widgets_after_title', '</h3>' );
+			$after_title  = apply_filters( 'shoestrap_widgets_after_title', '<span class="line"></span></h3>' );
+			//$after_title  = '<span class="line"></span></h3>' ;
+
 
 			// Sidebars
 			register_sidebar( array(
@@ -30,6 +32,7 @@ if( ! class_exists( 'Shoestrap_Footer' ) ) {
 				'before_title'  => $before_title,
 				'after_title'   => $after_title,
 			));
+			
 
 			register_sidebar( array(
 				'name'          => __( 'Secondary Sidebar', 'shoestrap' ),
@@ -109,9 +112,9 @@ if( ! class_exists( 'Shoestrap_Footer' ) ) {
 
 			$style .= 'footer div.container { margin-top:'. $container_margin .'px; }';
 			$style .= '#copyright-bar { line-height: 30px; }';
-			$style .= '#footer_social_bar { line-height: 30px; font-size: 16px; text-align: right; }';
+			/*$style .= '#footer_social_bar { line-height: 30px; font-size: 16px; text-align: right; }';
 			$style .= '#footer_social_bar a { margin-left: 9px; padding: 3px; color:' . $cl . '; }';
-			$style .= '#footer_social_bar a:hover, #footer_social_bar a:active { color:' . $cl_brand . ' !important; text-decoration:none; }';
+			$style .= '#footer_social_bar a:hover, #footer_social_bar a:active { color:' . $cl_brand . ' !important; text-decoration:none; }';*/
 
 			wp_add_inline_style( 'shoestrap_css', $style );
 		}
@@ -174,7 +177,7 @@ if( ! class_exists( 'Shoestrap_Footer' ) ) {
 								foreach ( $networks as $network ) {
 									// Check if the social network URL has been defined
 									if ( isset( $network['url'] ) && ! empty( $network['url'] ) && strlen( $network['url'] ) > 7 ) {
-										echo '<a href="' . $network['url'] . '"' . $blank . ' title="' . $network['icon'] . '"><span class="el-icon-' . $network['icon'] . '"></span></a>';
+										echo '<a href="' . $network['url'] . '"' . $blank . ' title="' . $network['icon'] . '"><i class="fa fa-' . $network['icon'] . '"></i></a>';
 									}
 								}
 

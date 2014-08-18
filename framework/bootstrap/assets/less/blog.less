@@ -1,5 +1,6 @@
 .breadcrumb {
 	overflow: hidden;
+	background-color: transparent;
 }
 
 .row-meta {
@@ -11,4 +12,43 @@
     span.col-md-1 {
         width: auto;
     }
+}
+
+main.has-sidebar {
+       border-right:thin solid @gray-lighter;		
+}
+
+
+aside.sidebar section {
+	border:none;
+	background:transparent;
+	border-radius:0;
+	
+	-webkit-box-shadow: none;
+	-moz-box-shadow:none;
+	box-shadow: none;
+	
+}
+
+aside.sidebar section ul {
+	padding-left:(@grid-gutter-width/2)
+	
+}
+
+aside.sidebar section ul.nav-list {
+	padding-left:0px;
+	
+}
+
+aside.sidebar section .widget-title  {
+	margin-top:0px;
+	
+}
+
+aside.sidebar section .widget-title span.line {
+	display:block;
+	width:90px;
+	height:4px;
+	margin-top:(@grid-gutter-width/4);
+	background-color:@brand-primary;
 }

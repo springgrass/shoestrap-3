@@ -35,7 +35,26 @@ if ( ! defined( 'SHOESTRAP_OPT_NAME' ) ) {
 global $ss_settings;
 $ss_settings = get_option( SHOESTRAP_OPT_NAME );
 
+
 do_action( 'shoestrap_include_files' );
+
+
+
+// Redux here
+
+// Only load TGM if REDUX is not installed
+/*if (! class_exists( 'ReduxFramework' ) ) {
+	require_once locate_template( '/lib/class-TGM_Plugin_Activation.php' ); // TGM_Plugin_Activation
+	require_once locate_template( '/lib/dependencies.php' );                // load our dependencies
+}*/
+
+if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' );
+}
+
+if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/framework/bootstrap/includes/class-Shoestrap_Options.php' ) ) {
+require_once( dirname( __FILE__ ) . '/framework/bootstrap/includes/class-Shoestrap_Options.php' );
+} 
 
 require_once locate_template( '/lib/class-Shoestrap_Color.php' );
 require_once locate_template( '/lib/class-Shoestrap_Image.php' );
@@ -60,19 +79,7 @@ require_once locate_template( '/lib/post-formats.php' ); // Sidebars and widgets
 require_once locate_template( '/lib/scripts.php' );      // Scripts and stylesheets
 require_once locate_template( '/lib/deprecated.php' );   // Deprecated functions
 
-// Only load TGM if REDUX is not installed
-if ( ! class_exists( 'ReduxFramework' ) ) {
-	require_once locate_template( '/lib/class-TGM_Plugin_Activation.php' ); // TGM_Plugin_Activation
-	require_once locate_template( '/lib/dependencies.php' );                // load our dependencies
-}
 
-if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/ReduxFramework/ReduxCore/framework.php' );
-}
-
-if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/framework/bootstrap/includes/class-Shoestrap_Options.php' ) ) {
-require_once( dirname( __FILE__ ) . '/framework/bootstrap/includes/class-Shoestrap_Options.php' );
-} 
 
 
 // Setup our custom updater

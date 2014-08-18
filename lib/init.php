@@ -33,10 +33,10 @@ function shoestrap_setup() {
 add_action('after_setup_theme', 'shoestrap_setup');
 
 
-if ( ! function_exists( 'porfolio_custom_taxonomy' ) ) {
+if ( ! function_exists( 'portfolio_custom_taxonomy' ) ) {
 
 // Register Custom Taxonomy
-function porfolio_custom_taxonomy() {
+function portfolio_custom_taxonomy() {
 
 	$labels = array(
 		'name'                       => _x( 'Portfolio Categories', 'Taxonomy General Name', 'shoestrap' ),
@@ -111,7 +111,7 @@ function porfolio_custom_taxonomy() {
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'porfolio_custom_taxonomy', 0 );
+add_action( 'init', 'portfolio_custom_taxonomy', 0 );
 
 }
 
@@ -122,8 +122,8 @@ if ( ! function_exists('custom_post_type') ) {
 function custom_post_type() {
 
 	$labels = array(
-		'name'                => _x( 'Porfolio', 'Post Type General Name', 'shoestrap' ),
-		'singular_name'       => _x( 'Porfolio', 'Post Type Singular Name', 'shoestrap' ),
+		'name'                => _x( 'Portfolio', 'Post Type General Name', 'shoestrap' ),
+		'singular_name'       => _x( 'Portfolio', 'Post Type Singular Name', 'shoestrap' ),
 		'menu_name'           => __( 'Portfolio Posts', 'shoestrap' ),
 		'parent_item_colon'   => __( 'Parent Item:', 'shoestrap' ),
 		'all_items'           => __( 'All Portfolio', 'shoestrap' ),
@@ -178,27 +178,58 @@ function latest_portfolio_shortcode( $atts ) {
 	// Attributes
 	extract( shortcode_atts(
 		array(
-			'posts' => 4,
+			'posts' => 8,
 		), $atts )
 	);
 
 	// Code
+	global $ss_framework;
  	query_posts(array('post_type' => 'portfolio','orderby' => 'title', 'order' => 'ASC' , 'showposts' => $posts));
 	
-   $return_string = "<ul>";
-   if (have_posts()) :
-   	  
-      while (have_posts()) : the_post();
-         $return_string .=  '<li><a href="'.get_permalink().'">'.get_the_title().'</a></li>';
-      endwhile;
-	  $return_string .= "</ul>";
-   endif;
-   wp_reset_query();
-   return $return_string;
+   $return_string =  $ss_framework->clearfix();
+   //           $return_string .= '<h2 class="porfolio-title text-center">Portfolio</h2>';
+   if (have_posts()) {
+   	  $return_string .=  '<div class="portfolio-container"><ul  class="portfolio-grid list-unstyled row-fluid ">';
+	while ( have_posts() ) : the_post();
+	$post_id = get_the_ID();
+     $categories_terms = get_the_terms( $post_id, 'Portfolio Category' );
+	 $tag_list        = get_the_tag_list(', '); 
+
+		$return_string .= '<li class="col-xs-6 col-sm-4 col-md-3" >';
+		$return_string .= '<a href="' . get_permalink() . '" title="View Portfolio">';		
+		$return_string .= '<figure class="portfolio-figure ">';
+
+	
+		
+		//do_action( 'shoestrap_entry_meta' );
+		//shoestrap_title_section();
+		
+		if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+			$return_string .= get_the_post_thumbnail($post_id, array(275, 245));
+		} 
+		
+		$return_string .= '<figcaption class="picture-item__title">';
+		$return_string .= '<h3>';
+		$return_string .= get_the_title();
+		$return_string .= '</h3>';
+		$return_string .= get_the_excerpt();
+		$return_string .= '</figcaption>';
+	    $return_string .=  '</figure>';
+	    $return_string .=  '</a>';
+	    $return_string .=  '</li>';
+
+		          
+	endwhile;
+   }
+
+	$return_string .=  '</ul></div>';
+	$return_string .=  $ss_framework->clearfix();
+   	wp_reset_query();
+   	return $return_string;
 }
 
 function register_shortcodes(){
-  add_shortcode( 'latest-portfolio', 'latest_portfolio_shortcode' );
+  add_shortcode( 'latest_portfolio', 'latest_portfolio_shortcode' );
 }
 
 add_action( 'init', 'register_shortcodes');

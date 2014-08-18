@@ -394,7 +394,7 @@ if ( ! class_exists( 'Shoestrap_Layout' ) ) {
 		 */
 		function alter_widgets_after_title() {
 			global $ss_settings;
-			return $ss_settings['widgets_mode'] == 0 ? '</div><div class="panel-body">' : '</h3>';
+			return $ss_settings['widgets_mode'] == 0 ? '</div><div class="panel-body">' : '<span class="line"></span></h3>';
 		}
 
 		/**

@@ -10,32 +10,65 @@
 }
 
 #navbar_social_bar {
-    
-	a {
-		background-color:@brand-primary;
-		margin-left: 30px;
-		text-align: center;
-	width: 32px;
-	height: 32px;
+    margin-top:8px;
+	margin-bottom:8px;
+	a.btn {
 	display: inline-block;
 	position: relative;
-	line-height: 32px;
-	/*background-color: #eaeaea;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
-	background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
-	background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea); 
-	background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea); 
-	background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
-	background-image: linear-gradient(top, #f6f6f6, #eaeaea);*/
-	-moz-border-radius: 16px;
-	-webkit-border-radius: 16px;
-	border-radius: 16px;
-	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+	padding:0px;
+	margin:0px;
+	border:0px;
+	background-color:@brand-primary;
+	margin-left: 30px;
+	text-align: center;
+	font-size:18px;
+	line-height: 18px;
+	padding:2px;
+	width: 24px;
+	height: 24px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	opacity:1;
+	/*-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
-	box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);*/
+	}
+	a.btn:hover {
+		opacity:0.5;
 	}
 	
 }
+
+#footer_social_bar {
+    
+	a {
+	    display: inline-block;
+		position: relative;
+	    padding:0px;
+		margin:0px;
+		background-color:#ffffff;
+		color:@brand-primary;
+		margin-left: 30px;
+		text-align: center;
+		width: 24px;
+		height: 24px;
+		font-size:18px;
+		line-height: 18px;
+		padding:2px;
+		-moz-border-radius: 12px;
+		-webkit-border-radius: 12px;
+		border-radius: 12px;
+		opacity:1.0;
+	    i {
+		  color:@brand-primary;
+		}
+		:hover {
+		opacity:0.5;
+		}
+	}
+}
+
 
 
 .btn-group.social-share {
