@@ -23,7 +23,7 @@ the_content();
 echo $ss_framework->clearfix();
 
 echo '<hr/>';
-echo the_terms( $post->ID, 'Portfolio Category', 'Categories: ', ', ', ' ' );
+echo the_terms( $post->ID, 'portfolio_category', 'Categories: ', ', ', ' ' );
 do_action( 'shoestrap_single_after_content' );
 
 echo '</div>';

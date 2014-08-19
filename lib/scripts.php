@@ -13,6 +13,7 @@ function shoestrap_scripts() {
 	wp_register_script( 'fitvids', SHOESTRAP_ASSETS_URL . '/js/vendor/jquery.fitvids.js',false, null, true  );
 	
 	wp_register_script( 'shuffle', SHOESTRAP_ASSETS_URL . '/js/vendor/jquery.shuffle.min.js',false, null, true  );
+	wp_register_script( 'portfolio_shuffle', SHOESTRAP_ASSETS_URL . '/js/portfolio_shuffle.js',false, null, true  );
 
 	wp_enqueue_script( 'jquery' );
 
@@ -24,6 +25,7 @@ function shoestrap_scripts() {
 	}
 	if (is_post_type_archive( 'portfolio' )) {
 		wp_enqueue_script( 'shuffle' );
+		wp_enqueue_script( 'portfolio_shuffle' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'shoestrap_scripts', 100 );

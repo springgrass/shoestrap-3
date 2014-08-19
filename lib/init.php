@@ -70,7 +70,7 @@ function portfolio_custom_taxonomy() {
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
 		'update_count_callback'      => 'portfolio_categories_count',	);
-	register_taxonomy( 'Portfolio Category', array( 'portfolio' ), $args );
+	register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
 	
 		
 	// Register Portfolio Tags
@@ -106,7 +106,7 @@ function portfolio_custom_taxonomy() {
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
 		'update_count_callback'      => 'portfolio_tags_count',	);
-	register_taxonomy( 'Portfolio Tag', array( 'portfolio' ), $args );
+	register_taxonomy( 'portfolio_tag', array( 'portfolio' ), $args );
 
 }
 
