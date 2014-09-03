@@ -41,6 +41,20 @@ function shoestrap_display_secondary_sidebar() {
 }
 
 
+function shoestrap_display_aftercontent_sidebar() {
+	$sidebar_config = new Shoestrap_Sidebar(
+		array(
+			'is_front_page'
+		),
+		array(
+			'template-0.php'
+		)
+	);
+
+	return apply_filters( 'shoestrap_display_aftercontent_sidebar', $sidebar_config->display );
+}
+
+
 if ( ! function_exists( 'shoestrap_section_class' ) ) :
 /*
  * Calculates the classes of the main area, main sidebar and secondary sidebar

@@ -50,8 +50,16 @@
 				<?php echo $ss_framework->clearfix(); ?>
 			<?php echo $ss_framework->close_row( 'div' ); ?>
 		</div><!-- /.content -->
-		<?php do_action( 'shoestrap_after_content' ); ?>
+        <?php do_action( 'shoestrap_after_content' ); ?>
 	<?php echo $ss_framework->close_container( 'div' ); ?><!-- /.wrap -->
+    		<?php //if ( shoestrap_display_aftercontent_sidebar() ) : ?>
+        <div id="after-content">
+              <div class="container">
+              <?php dynamic_sidebar( 'after-content' ); ?>
+              </div>
+        </div>
+        <?php //endif; ?>
+    
 	<?php
 
 	do_action( 'shoestrap_pre_footer' );

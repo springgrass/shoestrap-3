@@ -42,6 +42,15 @@ if( ! class_exists( 'Shoestrap_Footer' ) ) {
 				'before_title'  => $before_title,
 				'after_title'   => $after_title,
 			));
+			
+			register_sidebar( array(
+				'name'          => __( 'After Content', 'shoestrap' ),
+				'id'            => 'after-content',
+				'before_widget' => '<section id="%1$s" class="' . $class . ' widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => apply_filters( 'shoestrap_widgets_before_title', '<h2 class="widget-title">' ),
+				'after_title'   => apply_filters( 'shoestrap_widgets_after_title', '<span class="icon"></span></h2>' ),
+			));
 
 			register_sidebar( array(
 				'name'          => __( 'Footer Widget Area 1', 'shoestrap' ),
